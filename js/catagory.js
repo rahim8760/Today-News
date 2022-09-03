@@ -102,3 +102,8 @@ const allNews=catagoryNews=>{
 allNewsByCatagory()
 
 }
+
+//  modal section js code
+function newsId(id)  {
+    console.log(id);
+}
