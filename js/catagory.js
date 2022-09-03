@@ -111,3 +111,42 @@ function newsId(id)  {
     .then(data => news(data.data))
     .catch(error => console.log('error'));
 }
+const news= id => {
+    newsModal.innerHTML=''
+    id.forEach(modal_Id => {
+    const newsModal=document.getElementById('newsModal');  
+    const newsModalDit=document.createElement('dmodal-contentiv')
+    newsModalDit.classList.add('modal-body')
+    newsModalDit.innerHTML=`
+        <div class="modal-header">
+            <h1 class="card-title ">${modal_Id.title ?modal_Id.title:"No Titel Found"}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div  class="modal-body">
+            <div class="card text-white bg-black rounded text-center">
+                <img src="${modal_Id.thumbnail_url ?modal_Id.thumbnail_url:"No image Found"}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">${modal_Id.details ?modal_Id.details:"No description Found"}</p>
+                </div>
+                <div class="card-body">
+                    <img src="${modal_Id.author.img ?modal_Id.author.img:"No Titel Found"}" class=" w-25 rounded-circle " alt="...">
+                    <a href="#" class="card-link text-white text-decoration-none">${modal_Id.author.name ?modal_Id.author.name:"anonymous"}</a>
+                </div>
+                <div class="card-body">
+                    
+                    <a href="#" class="card-link text-white text-decoration-none">${modal_Id.total_view ?modal_Id.total_view:"you are first"} views</a>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="card-link text-white text-decoration-none">${modal_Id.rating.number ?modal_Id.rating.number:"1"}</a>
+                    <a href="#" class="card-link text-white text-decoration-none">${modal_Id.rating.badge ?modal_Id.rating.badge:"Good"}</a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+    `
+    newsModal.appendChild(newsModalDit)
+})
+}
