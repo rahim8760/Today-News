@@ -21,6 +21,18 @@ const displayNews = NewsCatagoris => {
     })
 
 }
+// loader/spenar
+
+const lodingSpaner=isLoading=>{
+    const spaner=document.getElementById('spnerSection');
+    if (isLoading) {
+        spaner.classList.remove('d-none')
+    }else{
+        spaner.classList.add('d-none')
+
+    }
+}
+
 
 
 // All news Start
