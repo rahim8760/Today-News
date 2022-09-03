@@ -105,5 +105,9 @@ allNewsByCatagory()
 
 //  modal section js code
 function newsId(id)  {
-    console.log(id);
+    
+    fetch(`https://openapi.programming-hero.com/api/news/${id}`)
+    .then(res => res.json())
+    .then(data => news(data.data))
+    .catch(error => console.log('error'));
 }
