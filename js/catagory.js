@@ -38,6 +38,7 @@ const lodingSpaner=isLoading=>{
 // All news Start
 
 function catagoryId(id) {
+    lodingSpaner(true);
 const allNewsByCatagory= async()=>{
     const url=`https://openapi.programming-hero.com/api/news/category/0${id}`
     const res =await fetch(url);
@@ -93,6 +94,7 @@ const allNews=catagoryNews=>{
                 `
                 
         newsFild.appendChild(newsDiv);
+        lodingSpaner(false);
     });
 
     
